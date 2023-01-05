@@ -1,15 +1,22 @@
 import React from 'react';
 import {StyledCounter, StyledH2, StyledA} from './styles';
 
+interface Props  {
+  data?:{ 
+    fields: {
+    internalName: string;
+    pageDescription: string;
+    }
+  }
+}
 
-
-const BlogItem: React.FC = () => {
+const BlogItem: React.FC<Props> = (post?: Props) => {
   return (
   <article>
     <StyledCounter>
       <StyledH2><StyledA
-       href="/hello-world/">Hello World</StyledA></StyledH2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione obcaecati veritatis vel. Deleniti explicabo dolores voluptates pariatur sit quos odit. Quod error id ad alias voluptate asperiores commodi harum perferendis.</p>
+       href="/hello-world/">{post?.data?.fields.internalName}</StyledA></StyledH2>
+      <p>{post?.data?.fields.pageDescription}</p>
       <p >
         <img src="" alt="" />
         <i className='link-spacer'>Gabriel Velezmoro</i>
